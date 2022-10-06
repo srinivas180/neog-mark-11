@@ -13,17 +13,24 @@ function isYourBirthdayLucky() {
         outputDiv.innerText = "Enter both fields to check whether your birthday is lucky or not."
     }
     else {
-        dobValue = dobValue.replaceAll("-", "");
-        for(var i = 0; i < dobValue.length; i++) {
-            sum += parseInt(dobValue.charAt(i));
+        if(luckyNum < 0)
+        {
+            outputDiv.innerHTML = "Please check lucky number: Enter only positive lucky number"
         }
-        if(sum % luckyNum == 0) {
-            //lucky
-            outputDiv.innerText = "Your birthday is lucky";
-        }
-        else {
-            //unlucky
-            outputDiv.innerText = "Your birthday is not lucky";
+        else
+        {
+            dobValue = dobValue.replaceAll("-", "");
+            for(var i = 0; i < dobValue.length; i++) {
+                sum += parseInt(dobValue.charAt(i));
+            }
+            if(sum % luckyNum == 0) {
+                //lucky
+                outputDiv.innerText = "Your birthday is lucky";
+            }
+            else {
+                //unlucky
+                outputDiv.innerText = "Your birthday is not lucky";
+            }
         }
     }
 }
